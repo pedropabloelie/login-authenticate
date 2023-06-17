@@ -1,0 +1,16 @@
+version: "3"
+services:
+  bienesraices_mysql:
+    image: mysql:5.7
+    container_name: bienesraices_mysql
+    platform: linux/amd64 #For M1 Processors
+    volumes:
+      - "/var/lib/mysql"
+    env_file: ./storage/.env.mysql
+    ports:
+      - "7784:3306"
+    networks:
+      - bn-network
+networks:
+  bn-network:
+    driver: bridge
